@@ -11,7 +11,7 @@ services:
       - GIN_MODE=release
     ports:
       - "8090:8090"
-    depends_on:
+    depends_on: 
       - kafka
 
   kafka:
