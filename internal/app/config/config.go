@@ -22,7 +22,7 @@ func InitConfig() (*Config, error) {
 	}
 
 	// Load environment variables from the .env file.
-	err := godotenv.Load(".env." + *env)
+	err := godotenv.Load("/app/.env." + *env)
 	if err != nil {
 		log.Fatalf("Error loading .env file for %s environment", *env)
 	}
@@ -30,7 +30,7 @@ func InitConfig() (*Config, error) {
 	// Set up viper for reading YAML config.
 	viper.SetConfigName("config." + *env)
 	viper.SetConfigType("yaml")
-	viper.AddConfigPath("./config")
+	viper.AddConfigPath("/app/config")
 	viper.AddConfigPath(".")
 
 	// Read the config file

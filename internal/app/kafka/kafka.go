@@ -36,3 +36,9 @@ func InitKafkaWriters(cfg *config.TKafkaConfig) (map[string]*kafka.Writer, error
 
 	return writers, nil
 }
+
+func NewKafkaMessage(value []byte) kafka.Message {
+	return kafka.Message{
+		Value: value,
+	}
+}

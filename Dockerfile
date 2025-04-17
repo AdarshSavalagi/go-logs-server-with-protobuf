@@ -47,8 +47,11 @@ RUN chmod +x /app/main
 ENV ENV_FILE=/app/.env.development
 ENV CONFIG_PATH=/app/config/config.development.yaml
 
+COPY .env.development /app/.env.development
+COPY config/config.development.yaml /app/config/config.development.yaml
+
 # Expose application port
-EXPOSE 8080
+EXPOSE 8090
 
 # Set the command to run the application
 CMD ["/app/main"]
