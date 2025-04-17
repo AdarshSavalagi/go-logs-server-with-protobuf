@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package log;
+
+import "google/protobuf/timestamp.proto";
+import "context.proto";
+
+message EventMessage {
+  string eventID = 1;
+  log.Context context = 2;
+
+  string eventName = 3;         // e.g. screen_viewed, app_opened, app_crashed
+  string screenName = 4;        // optional
+
+  google.protobuf.Timestamp eventTime = 5;
+
+  bool appOpened = 6;
+  bool appBackgrounded = 7;
+  bool sessionStarted = 8;
+  bool sessionEnded = 9;
+
+  double latitude = 10;
+  double longitude = 11;
+  string city = 12;
+  string region = 13;
+  string country = 14;
+  string carrier = 15;
+
+  bool dynamicConfigChanged = 16;
+
+  map<string, string> customAttributes = 17;
+}

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package log;
+
+import "google/protobuf/timestamp.proto";
+import "context.proto";
+
+enum LogLevel {
+  VERBOSE = 0;
+  DEBUG = 1;
+  INFO = 2;
+  WARN = 3;
+  ERROR = 4;
+  FATAL = 5;
+}
+
+enum LogType {
+  UNKNOWN = 0;
+  NON_FATAL = 1;
+  FATAL_CRASH = 2;
+}
+
+message LogMessage {
+  string logID = 1;
+  log.Context context = 2;
+
+  LogLevel level = 3;
+  LogType type = 4;
+  string message = 5;
+  string stackTrace = 6;
+
+  google.protobuf.Timestamp loggedAt = 7;
+
+  // Device Info
+  bool isRooted = 8;
+  double freeRAMMB = 9;
+  double freeStorageMB = 10;
+  string deviceModel = 11;
+  string deviceOS = 12;
+  string deviceOSVersion = 13;
+}

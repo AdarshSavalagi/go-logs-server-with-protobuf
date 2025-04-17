@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package log;
+
+message Context {
+  string deviceID = 1;
+  string appVersion = 2;
+  string appPackageName = 3;
+  string userID = 4;
+  string sessionID = 5;
+  string language = 6;
+  string networkStatus = 7;
+  string location = 8;
+  string ipAddress = 9;
+}
